@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Train Restaurant | QR Menu</title>
+
+<style>
+:root {
+    --maroon: #6b0f1a;
+    --gold: #d4af37;
+    --bg: #f8f5f2;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: var(--bg);
+    color: #222;
+}
+
+header {
+    background: var(--maroon);
+    color: #fff;
+    text-align: center;
+    padding: 18px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 22px;
+}
+
+header p {
+    margin: 5px 0 0;
+    font-size: 14px;
+    color: #f1e6e6;
+}
+
+.filters {
+    display: flex;
+    gap: 10px;
+    padding: 12px;
+    justify-content: center;
+    background: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.filters button {
+    border: none;
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.filters .all { background: #ddd; }
+.filters .veg { background: #2e7d32; color: #fff; }
+.filters .nonveg { background: #c62828; color: #fff; }
+
+.section {
+    padding: 15px;
+}
+
+.section h2 {
+    margin: 0 0 10px;
+    color: var(--maroon);
+    border-bottom: 2px solid var(--gold);
+    display: inline-block;
+    padding-bottom: 4px;
+    font-size: 18px;
+}
+
+.menu-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px dashed #ccc;
+}
+
+.menu-item span {
+    font-size: 14px;
+}
+
+.price {
+    font-weight: bold;
+}
+
+.veg-tag { color: #2e7d32; }
+.nonveg-tag { color: #c62828; }
+
+.hidden {
+    display: none;
+}
+
+footer {
+    text-align: center;
+    padding: 15px;
+    font-size: 13px;
+    background: #fff;
+    color: #555;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>🚆 Train Restaurant</h1>
+    <p>Premium Veg & Non-Veg Dining</p>
+</header>
+
+<div class="filters">
+    <button class="all" onclick="filterMenu('all')">All</button>
+    <button class="veg" onclick="filterMenu('veg')">Veg</button>
+    <button class="nonveg" onclick="filterMenu('nonveg')">Non-Veg</button>
+</div>
+
+<!-- SOUPS -->
+<div class="section veg">
+<h2>Soups (Veg)</h2>
+<div class="menu-item"><span>Sweet Corn Soup</span><span class="price">₹159</span></div>
+<div class="menu-item"><span>Hot & Sour Soup</span><span class="price">₹179</span></div>
+<div class="menu-item"><span>Cream of Tomato Soup</span><span class="price">₹159</span></div>
+<div class="menu-item"><span>Manchow Soup</span><span class="price">₹179</span></div>
+<div class="menu-item"><span>Lemon Coriander Soup</span><span class="price">₹179</span></div>
+</div>
+
+<div class="section nonveg">
+<h2>Soups (Non-Veg)</h2>
+<div class="menu-item"><span>Chicken Sweet Corn Soup</span><span class="price">₹179</span></div>
+<div class="menu-item"><span>Chicken Manchow Soup</span><span class="price">₹189</span></div>
+<div class="menu-item"><span>Chicken Hot & Sour Soup</span><span class="price">₹189</span></div>
+<div class="menu-item"><span>Chicken Lemon Coriander Soup</span><span class="price">₹189</span></div>
+</div>
+
+<!-- VEG STARTERS -->
+<div class="section veg">
+<h2>Veg Starters</h2>
+<div class="menu-item"><span>Veg Manchurian</span><span class="price">₹249</span></div>
+<div class="menu-item"><span>Paneer Chilly / 65 / Manchurian</span><span class="price">₹369</span></div>
+<div class="menu-item"><span>Paneer Tikka</span><span class="price">₹339</span></div>
+<div class="menu-item"><span>Mushroom Chilly / 65</span><span class="price">₹299</span></div>
+<div class="menu-item"><span>Crispy Babycorn</span><span class="price">₹289</span></div>
+</div>
+
+<!-- NON VEG STARTERS -->
+<div class="section nonveg">
+<h2>Non-Veg Starters</h2>
+<div class="menu-item"><span>Chilly Chicken</span><span class="price">₹349</span></div>
+<div class="menu-item"><span>Chicken 65</span><span class="price">₹349</span></div>
+<div class="menu-item"><span>Chicken Majestic</span><span class="price">₹349</span></div>
+<div class="menu-item"><span>Chicken Lollipop</span><span class="price">₹349</span></div>
+<div class="menu-item"><span>Fish Fry</span><span class="price">₹349</span></div>
+</div>
+
+<!-- BIRYANI -->
+<div class="section veg">
+<h2>Veg Biryani</h2>
+<div class="menu-item"><span>Plain Biryani</span><span class="price">₹239</span></div>
+<div class="menu-item"><span>Veg Biryani</span><span class="price">₹269</span></div>
+<div class="menu-item"><span>Veg Mughalayi</span><span class="price">₹289</span></div>
+<div class="menu-item"><span>Mushroom Biryani</span><span class="price">₹299</span></div>
+<div class="menu-item"><span>Paneer Biryani</span><span class="price">₹309</span></div>
+<div class="menu-item"><span>Kaju Paneer Pulao</span><span class="price">₹239</span></div>
+<div class="menu-item"><span>Kaju Biryani</span><span class="price">₹329</span></div>
+<div class="menu-item"><span>Gongura Paneer Biryani</span><span class="price">₹329</span></div>
+</div>
+
+<div class="section nonveg">
+<h2>Non-Veg Biryani</h2>
+<div class="menu-item"><span>Chicken Fry Piece Biryani</span><span class="price">₹339</span></div>
+<div class="menu-item"><span>Hyderabad Dum Biryani</span><span class="price">₹349</span></div>
+<div class="menu-item"><span>Chicken Tikka</span><span class="price">₹349</span></div>
+<div class="menu-item"><span><b>Chicken Mughalayi</b></span><span class="price">₹369</span></div>
+<div class="menu-item"><span>Mutton Mughalayi</span><span class="price">₹409</span></div>
+<div class="menu-item"><span>Prawns Mughalayi</span><span class="price">₹389</span></div>
+<div class="menu-item"><span>Mutton Fry Piece</span><span class="price">₹429</span></div>
+<div class="menu-item"><span><b>Mutton Keema</b></span><span class="price">₹429</span></div>
+<div class="menu-item"><span>Prawns Biryani</span><span class="price">₹389</span></div>
+<div class="menu-item"><span>Mixed Biryani</span><span class="price">₹409</span></div>
+<div class="menu-item"><span>Gongura Chicken Pulao</span><span class="price">₹359</span></div>
+<div class="menu-item"><span><b>Gongura Mutton Pulao</b></span><span class="price">₹389</span></div>
+<div class="menu-item"><span>Gongura Prawn Pulao</span><span class="price">₹359</span></div>
+<div class="menu-item"><span>Chitti Muthyalu Chicken Biryani</span><span class="price">₹350</span></div>
+<div class="menu-item"><span>Mutton Dum Biryani</span><span class="price">₹450</span></div>
+<div class="menu-item"><span><b>Mixed Mughalayi</b></span><span class="price">₹450</span></div>
+</div>
+<div class="section veg">
+<h2>Indian (Veg)</h2>
+<div class="menu-item"><span>Kadai Veg</span><span class="price">₹249</span></div>
+<div class="menu-item"><span>Mixed Veg Curry</span><span class="price">₹249</span></div>
+<div class="menu-item"><span>Methi Chaman</span><span class="price">₹279</span></div>
+<div class="menu-item"><span>Babycorn Masala</span><span class="price">₹279</span></div>
+<div class="menu-item"><span>Mushroom Masala</span><span class="price">₹279</span></div>
+<div class="menu-item"><span>Kaju Masala</span><span class="price">₹299</span></div>
+<div class="menu-item"><span>Kaju Mushroom</span><span class="price">₹309</span></div>
+<div class="menu-item"><span>Kadai Mushroom </span><span class="price">₹289</span></div>
+<div class="menu-item"><span>Kadai Paneer</span><span class="price">₹289</span></div>
+<div class="menu-item"><span>Paneer Butter Masala</span><span class="price">₹279</span></div>
+<div class="menu-item"><span>Kaju Paneer</span><span class="price">₹319</span></div>
+<div class="menu-item"><span>Palak Paneer</span><span class="price">₹279</span></div>
+<div class="menu-item"><span>Tomato Kaju Curry</span><span class="price">₹309</span></div>
+<div class="menu-item"><span>Gongura Veg Curry</span><span class="price">₹269</span></div>
+<div class="menu-item"><span>Paneer Tikka Masala</span><span class="price">₹299</span></div>
+<div class="menu-item"><span>Palak Paneer</span><span class="price">₹279</span></div>
+<div class="menu-item"><span>Veg Chettinadu </span><span class="price">₹249</span></div>
+<div class="menu-item"><span>Veg kheema Curry</span><span class="price">₹239</span></div>
+<div class="menu-item"><span>Dal Fry</span><span class="price">₹199</span></div>
+<div class="menu-item"><span>Dal Thaduka</span><span class="price">₹229</span></div>
+<div class="menu-item"><span>Bismillah Bath</span><span class="price">₹249</span></div>
+<div class="menu-item"><span>Veg Satwala</span><span class="price">₹249</span></div>
+<div class="menu-item"><span>Plain Palak</span><span class="price">₹199</span></div>
+<div class="menu-item"><span>Malai Lofla Curry</span><span class="price">₹329</span></div>
+<div class="menu-item"><span>Malai Koftha</span><span class="price">₹379</span></div>
+</div>
+<footer>
+    Scan • Order • Enjoy 🍽️
+</footer>
+
+<script>
+function filterMenu(type) {
+    let veg = document.querySelectorAll('.veg');
+    let nonveg = document.querySelectorAll('.nonveg');
+
+    if (type === 'veg') {
+        veg.forEach(e => e.classList.remove('hidden'));
+        nonveg.forEach(e => e.classList.add('hidden'));
+    } 
+    else if (type === 'nonveg') {
+        nonveg.forEach(e => e.classList.remove('hidden'));
+        veg.forEach(e => e.classList.add('hidden'));
+    } 
+    else {
+        veg.forEach(e => e.classList.remove('hidden'));
+        nonveg.forEach(e => e.classList.remove('hidden'));
+    }
+}
+</script>
+
+</body>
+</html>
